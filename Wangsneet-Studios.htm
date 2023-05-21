@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <img src="https://i.328888.xyz/2023/05/03/iMbE8L.png" alt="Un-oh A error" style="position: absolute; left: 30%; top: 50px; width: 564px; height: 120px;">
+    <title>Wangsneet Studio</title>
+    <style>
+    #studio-name {
+        font-family: 'Segoe Script';
+    }
+    #languageSelect {
+        background-color: transparent;
+        border: none;
+    }    
+    body {
+        margin: 0;
+    }
+    #mainContent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+	@keyframes changeColor {
+		0% {background-color: #ff0000;}
+		14% {background-color: #ff7f00;}
+		28% {background-color: #ffff00;}
+		42% {background-color: #00ff00;}
+		57% {background-color: #0000ff;}
+		71% {background-color: #4b0082;}
+		85% {background-color: #9400d3;}
+		100% {background-color: #ff0000;}
+	}
+	body {
+		animation-name: changeColor;
+		animation-duration: 10s;
+		animation-iteration-count: infinite;
+	}
+    #scy-text {
+      position: absolute;
+      bottom: 70%;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      color: yellow;
+      transform: rotate(30deg);
+      animation: swing 2s ease-in-out infinite alternate;
+      left: 20%;
+      text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    }
+    @keyframes swing {
+      from {
+        transform: rotate(-30deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+    </style>
+</head>
+<body>
+    <div id="scy-text"></div>
+    <div style="background-color: gray; color: white; text-align: center; padding: 10px;">
+        Wangsneet Studio
+    </div>
+    <div style="position: absolute; top: 0; right: 0;">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English(UK)</option>
+            <option value="zh-CN">中文(简体)</option>
+            <option value="zh-TW">中文(繁體)</option>
+        </select>
+    </div>
+    <div id="mainContent">
+        <h1 id="mainTitle" style="font-family: Comic Sans MS;">Join Us!</h1>
+        <h2 id="subTitle" style="font-family: Comic Sans MS;">Wangsneet Studio Wait You Forever!</h2>
+        <button id="contactButton" onclick="contactUs()">Contact Us</button>
+    </div>
+    <div style="position: fixed; bottom: 0; right: 0; margin: 10px;">
+        <a id="creditsLink" href="#" onclick="showCredits()" style="text-decoration: none; color: black;">© Wangsneet studio 2021~<span id="currentYear"></span></a>
+    </div>
+    <div id="credits" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: white; overflow-y: scroll;">
+  <pre style="white-space: pre-wrap; word-wrap: break-word; margin: 20px;">
+===================
+<span style="color: yellow; font-weight: bold;">Wangsneet Studio 主力</span>
+===================
+
+<span style="color: gray; font-weight: bold;">程序设计</span>
+Wasneet
+
+<span style="color: gray; font-weight: bold;">建筑师</span>
+三班的小王
+Wasneet
+
+<span style="color: gray; font-weight: bold;">资源包制作</span>
+三班的小王
+Wasneet
+
+<span style="color: gray; font-weight: bold;">红石及部分技术性内容处理</span>
+Wasneet
+
+===================
+<span style="color: yellow; font-weight: bold;">Wangsneet Studio 细节处理团队</span>
+===================
+
+<span style="color: gray; font-weight: bold;">内部测试人员</span>
+Wasneet
+三班的小王
+心诚解说
+ワスニト·ド·クリト
+
+<span style="color: gray; font-weight: bold;">美工</span>
+三班的小王
+Chat GPT
+New Bing AI
+
+<span style="color: gray; font-weight:bold;">第三方爆破组(<span style="color: yellow; font-weight:bold;">外包</span></span><span style="color: gray; font-weight:bold;">)</span>
+Zhusheno
+
+<span style="color: gray; font-weight:bold;">吉祥物</span>
+Guiwow大蛇
+追母大蛇
+
+<span style="color: gray; font-weight: bold;">音乐组</span>
+Wasneet
+        </pre>
+    </div>
+    <script>
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+        var endButton = document.createElement("button");
+        
+        endButton.style.display = 'none';
+        var language = document.getElementById("languageSelect").value;
+        if (language === "en") {
+            endButton.textContent = "End";
+        } else if (language === "zh-CN") {
+            endButton.textContent = "完成";
+        } else if (language === "zh-TW") {
+            endButton.textContent = "結束";
+        }
+        endButton.addEventListener("click", function() {
+            
+            endButton.style.display = 'none';
+            var areaSelect = document.getElementById("areaSelect");
+            var areaIndex = areaSelect.selectedIndex;
+            var birthdayYearInput = document.getElementById("birthdayYearInput");
+            var birthdayYear = birthdayYearInput.value;
+            var birthdayMonthInput = document.getElementById("birthdayMonthInput");
+            var birthdayMonth = birthdayMonthInput.value;
+            if (birthdayMonth.length === 1) {
+                birthdayMonth = "0" + birthdayMonth;
+            }
+            var birthdayDayInput = document.getElementById("birthdayDayInput");
+            var birthdayDay = birthdayDayInput.value;
+            if (birthdayDay.length === 1) {
+                birthdayDay = "0" + birthdayDay;
+            }
+            var sexSelect = document.getElementById("sexSelect");
+            var sexValue = sexSelect.value;
+            var sexNumber;
+            if (sexValue === "Male" || sexValue === "男") {
+                sexNumber = Math.floor(Math.random() * 5) * 2 + 1; 
+            } else if (sexValue === "Female" || sexValue === "女") {
+                sexNumber = Math.floor(Math.random() * 5) * 2; 
+            }
+            var randomNumber = Math.floor(Math.random() * 10); 
+            var idNumber = "2097" + "0" + areaIndex + birthdayYear + birthdayMonth + birthdayDay + "21" + sexNumber + randomNumber;
+            var idNumberText = document.createTextNode(idNumber);
+            var mainContent = document.getElementById("mainContent");
+            mainContent.appendChild(idNumberText);
+            
+        });
+        var mainContent = document.getElementById("mainContent");
+        mainContent.appendChild(endButton);
+        var idCardButton = document.createElement("button");
+        idCardButton.style.marginLeft = "10px";
+        var language = document.getElementById("languageSelect").value;
+        if (language === "en") {
+            idCardButton.textContent = "Get An ID-Card In Fonkie";
+        } else if (language === "zh-CN") {
+            idCardButton.textContent = "获取浲崎市身份证";
+        } else if (language === "zh-TW") {
+            idCardButton.textContent = "獲得浲崎市身份證";
+        }
+        idCardButton.addEventListener("click", function() {
+            
+            idCardButton.style.display = 'none';
+            var contactButton = document.getElementById("contactButton");
+            contactButton.style.display = 'none';
+            endButton.style.display = 'block';
+            endButton.style.backgroundColor = '#FFEE00';
+            endButton.style.borderTopLeftRadius = '10px';
+            endButton.style.borderTopRightRadius = '10px';
+            endButton.style.borderBottomLeftRadius = '10px';
+            endButton.style.borderBottomRightRadius = '10px';
+            var language = document.getElementById("languageSelect").value;
+            var mainTitle = document.getElementById("mainTitle");
+            var subTitle = document.getElementById("subTitle");
+            if (language === "en") {
+                mainTitle.textContent = "...Filling In Data";
+                subTitle.textContent = "...";
+            } else if (language === "zh-CN") {
+                mainTitle.textContent = "写入个人信息...";
+                subTitle.textContent = "...";
+            } else if (language === "zh-TW") {
+                mainTitle.textContent = "...請輸入數據";    
+                subTitle.textContent = "...";
+            }
+            var areaSelectLabel = document.createElement("label");
+            areaSelectLabel.htmlFor = "areaSelect";
+            areaSelectLabel.textContent = language === "en" ? "Area" : (language === "zh-CN" ? "区域" : "區域");
+            var areaSelect = document.createElement("select");
+            areaSelect.id = "areaSelect";
+            var areaOptions;
+            if (language === "en") {
+                areaOptions = ["Korean", "Elementown", "Sournrav", "Coblstown", "Yanping", "Queshill"];
+            } else if (language === "zh-CN") {
+                areaOptions = ["启岚", "通元", "南川涧", "砾石滩", "彦安", "邱山"];
+            } else if (language === "zh-TW") {
+                areaOptions = ["启岚", "通元", "南川澗", "礫石灘", "彥安", "邱山"];
+            }
+            for (var i = 0; i < areaOptions.length; i++) {
+                var option = document.createElement("option");
+                option.value = areaOptions[i];
+                option.text = areaOptions[i];
+                areaSelect.appendChild(option);
+            }
+            var birthdayYearLabel = document.createElement("label");
+            birthdayYearLabel.htmlFor = "birthdayYearInput";
+            birthdayYearLabel.textContent = language === "en" ? "Birthday Year" : (language === "zh-CN" ? "出生年份" : "出生年份");
+            var birthdayYearInput = document.createElement("input");
+            birthdayYearInput.id = "birthdayYearInput";
+            var birthdayMonthLabel = document.createElement("label");
+            birthdayMonthLabel.htmlFor = "birthdayMonthInput";
+            birthdayMonthLabel.textContent = language === "en" ? "Birthday Month (Numbers)" : (language === "zh-CN" ? "出生月份" : "出生月份");
+            var birthdayMonthInput = document.createElement("input");
+            birthdayMonthInput.id = "birthdayMonthInput";
+            var birthdayDayLabel = document.createElement("label");
+            birthdayDayLabel.htmlFor = "birthdayDayInput";
+            birthdayDayLabel.textContent = language === "en" ? "Birthday Day (Numbers Only)" : (language === "zh-CN" ? "出生日期" : "出生日期");
+            var birthdayDayInput = document.createElement("input");
+            birthdayDayInput.id = "birthdayDayInput";
+            var sexSelectLabel = document.createElement("label");
+            sexSelectLabel.htmlFor = "sexSelect";
+            sexSelectLabel.textContent = language === "en" ? "Sex" : (language === "zh-CN" ? "性別" : "性別");
+            var sexSelect = document.createElement("select");
+            sexSelect.id = "sexSelect";
+            var sexOptions;
+            if (language === "en") {
+                sexOptions = ["Male", "Female"];
+            } else if (language === "zh-CN") {
+                sexOptions = ["男", "女"];
+            } else if (language === "zh-TW") {
+                sexOptions = ["男", "女"];
+            }
+            for (var i = 0; i < sexOptions.length; i++) {
+                var option = document.createElement("option");
+                option.value = sexOptions[i];
+                option.text = sexOptions[i];
+                sexSelect.appendChild(option);
+            }
+            var formDiv = document.createElement("div");
+            formDiv.style.display = "flex";
+            formDiv.style.flexDirection = "column";
+            formDiv.style.alignItems = "flex-start";
+            formDiv.appendChild(areaSelectLabel);
+            formDiv.appendChild(areaSelect);
+            formDiv.appendChild(birthdayYearLabel);
+            formDiv.appendChild(birthdayYearInput);
+            formDiv.appendChild(birthdayMonthLabel);
+            formDiv.appendChild(birthdayMonthInput);
+            formDiv.appendChild(birthdayDayLabel);
+            formDiv.appendChild(birthdayDayInput);
+            formDiv.appendChild(sexSelectLabel);
+            formDiv.appendChild(sexSelect);
+            var mainContent = document.getElementById("mainContent");
+            mainContent.appendChild(formDiv);
+            formDiv.appendChild(endButton);
+            
+           
+        });
+        var contactButton = document.getElementById("contactButton");
+        contactButton.parentNode.insertBefore(idCardButton, contactButton.nextSibling);
+        function setTextContent(lang) {
+            var texts = {
+                "en": [
+                "Phew! I Final Failed!",
+                "Hi Boy, Ther iz Warznet!",
+                "I know we won't be too much people,,,",
+                "Send E-Mail 2 Me! It's yeddd2021@outlook.com!",
+                "Welp, There is splash texts",
+                "theh!sehth!sehhhkron!",
+                "NO LUNAR NEW YEAR!",
+                "r u finish ur homework?",
+                "Create By New BING!"
+                ],
+                "zh-CN": [
+                "终于啊！我又失败辣！",
+                "嘿！我市瓦四拟忑~",
+                "我知道我们不会成为一个大工作室...",
+                "给我发邮件！yeddd2021@outlook.com",
+                "我是闪烁文本",
+                "斯恶，死额，斯恶谔谔！",
+                "新年不是韩国的！",
+                "你做完作业了吗？",
+                "我是New BING"
+                ],
+                "zh-TW": [
+                "太好了！我再次失敗了！",
+                "倪浩！我市哇四你特！",
+                "咱的人數也不多。。",
+                "給我發郵件！yeddd2021@outlook.com",
+                "老子是閃爍文本！",
+                "死呃，思餓，四呃呃呃！",
+                "是中國新年！",
+                "你的作業寫完了嗎？",
+                "我是New Bing"
+                ]
+            };
+            var scyText = document.getElementById("scy-text");
+            scyText.textContent = texts[lang][Math.floor(Math.random() * texts[lang].length)];
+            }
+
+            window.onload = function() {
+            setTextContent("en"); 
+            }
+            function changeLanguage() {
+                var language = document.getElementById("languageSelect").value;
+                var mainTitle = document.getElementById("mainTitle");
+                var subTitle = document.getElementById("subTitle");
+                var contactButton = document.getElementById("contactButton");
+                if (language === "en") {
+                    idCardButton.textContent = "Get An ID-Card Number In Fonkie";
+                } else if (language === "zh-CN") {
+                    idCardButton.textContent = "获取浲崎市身份证号";
+                } else if (language === "zh-TW") {
+                    idCardButton.textContent = "獲得浲崎市身份證號";
+                }
+                var language = document.getElementById("languageSelect").value;
+                if (language === "en") {
+                    endButton.textContent = "End";
+                } else if (language === "zh-CN") {
+                    endButton.textContent = "完成";
+                } else if (language === "zh-TW") {
+                    endButton.textContent = "結束";
+                }
+                if (idCardButton.style.display === 'none' && contactButton.style.display === 'none') {
+                    if (language === "en") {
+                        mainTitle.textContent = "...Filling In Data";
+                        subTitle.textContent = "...";
+                    } else if (language === "zh-CN") {
+                        mainTitle.textContent = "写入个人信息...";
+                        subTitle.textContent = "...";
+                    } else if (language === "zh-TW") {
+                        mainTitle.textContent = "...請輸入數據";
+                        subTitle.textContent = "...";
+                    }
+                } else {
+                    if (language === "en") {
+                        mainTitle.innerHTML = "Join Us!";
+                        mainTitle.style.fontFamily = "Comic Sans MS";
+                        subTitle.innerHTML = "Wangsneet Studio Wait You Forever!";
+                        subTitle.style.fontFamily = "Comic Sans MS";
+                        contactButton.innerHTML = "Contact Us";
+                        setTextContent(language);
+                    } else if (language === "zh-CN") {
+                        mainTitle.innerHTML = "免费，永恒";
+                        mainTitle.style.fontFamily = "方正少儿_GBK";
+                        subTitle.innerHTML = "你好！<span style='font-family: 方正少儿_GBK;'>Wangsneet</span>工作室";
+                        subTitle.style.fontFamily = "方正少儿_GBK";
+                        contactButton.innerHTML = "加入我们";
+                        setTextContent(language);
+                    } else if (language === "zh-TW") {
+                        mainTitle.innerHTML = "<span style='font-family: Comic Sans MS;'>Wangsneet</span>工作室歡迎您！";
+                        mainTitle.style.fontFamily = "方正少儿_GBK";
+                        subTitle.innerHTML = "我们为您的需求而生。";
+                        subTitle.style.fontFamily = "方正少儿_GBK";
+                        contactButton.innerHTML = "聯絡我們";
+                        setTextContent(language);
+                    }
+                }
+            }
+        function contactUs() {
+            var language = document.getElementById("languageSelect").value;
+            var mainContent = document.getElementById("mainContent");
+            var mainTitle = document.getElementById("mainTitle");
+            var subTitle = document.getElementById("subTitle");
+            var contactButton = document.getElementById("contactButton");
+            if (language === "en") {
+                mainTitle.innerHTML = "Scan This!";
+                mainTitle.style.fontFamily = "Comic Sans MS";
+                subTitle.innerHTML = "Scan It With WeChat!";
+                subTitle.style.fontFamily = "Comic Sans MS";
+            } else if (language === "zh-CN") {
+                mainTitle.innerHTML = "扫一扫！";
+                mainTitle.style.fontFamily = "方正少儿_GBK";
+                subTitle.innerHTML = "用微信扫描这个二维码！";
+                subTitle.style.fontFamily = "方正少儿_GBK";
+            } else if (language === "zh-TW") {
+                mainTitle.innerHTML = "掃描這個！";
+                mainTitle.style.fontFamily = "方正少儿_GBK";
+                subTitle.innerHTML = `用<span style='font-family: 方正少儿_GBK;'>WeChat</span>掃描這個<span style='font-family: 方正少儿_GBK;'>QR Code!</span>`;
+                subTitle.style.fontFamily = `Comic Sans MS`;
+            }
+            contactButton.style.display = 'none';
+            var imgElement=document.createElement('img');
+            imgElement.src='https://i.328888.xyz/2023/05/02/iMCWFy.th.png';
+            imgElement.addEventListener("load", function() {
+                var originalWidth = imgElement.naturalWidth;
+                var originalHeight = imgElement.naturalHeight;
+                imgElement.width = originalWidth / 2;
+                imgElement.height = originalHeight / 2;
+            });
+            mainContent.appendChild(imgElement);
+        }
+        function showCredits() {
+            var credits = document.getElementById("credits");
+            credits.style.display = 'block';
+            var closeButton = document.createElement("button");
+            closeButton.style.backgroundColor = "#00FF26";
+            closeButton.style.color = "black";
+            closeButton.style.position = "fixed";
+            closeButton.style.bottom = "10px";
+            closeButton.style.right = "10px";
+            var language = document.getElementById("languageSelect").value;
+            if (language === "en") {
+                closeButton.textContent = "Close Credits";
+            } else if (language === "zh-CN") {
+                closeButton.textContent = "关闭职员表";
+            } else if (language === "zh-TW") {
+                closeButton.textContent = "關閉職員名單";
+            }
+            closeButton.style.backgroundColor = '#00FFDD';
+            closeButton.style.borderTopLeftRadius = '10px';
+            closeButton.style.borderTopRightRadius = '10px';
+            closeButton.style.borderBottomLeftRadius = '10px';
+            closeButton.style.borderBottomRightRadius = '10px';
+            closeButton.addEventListener("click", function() {
+                credits.style.display = 'none';
+                document.body.removeChild(closeButton);
+            });
+            document.body.appendChild(closeButton);
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "Escape") {
+                    credits.style.display = 'none';
+                    document.body.removeChild(closeButton);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
